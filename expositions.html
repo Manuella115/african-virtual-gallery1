@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Galerie virtuelle africaine</title>
+    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
+    <style>
+      body { margin: 0; }
+    </style>
+  </head>
+  <body>
+
+    <!-- SCÈNE A-FRAME -->
+    <a-scene>
+        <a-light type="ambient" color="#cccccc"></a-light>
+
+      <!-- Caméra auto-mouvante -->
+    <a-entity id="rig" position="0 1.6 10">
+  <a-camera look-controls="enabled: true" cursor="rayOrigin: mouse">
+<!-- BOUTONS EN EN-TÊTE À GAUCHE -->
+<a-entity position="3 1.5 -2">
+  <!-- Bouton Retour -->
+  <a-plane 
+    width="0.4" height="0.20"
+    color="#d97706"
+    class="clickable"
+    onclick="window.location.href='index.html'">
+  </a-plane>
+  <a-text 
+    value="⬅ Retour"
+    align="center"
+    color="#fff"
+    position="0 0 0.01"
+    width="1.8">
+  </a-text>
+</a-entity>
+
+<a-entity position="2.5 1.5 -2">
+  <!-- Bouton Pause -->
+  <a-plane 
+    width="0.4" height="0.20"
+    color="#3b82f6"
+    class="clickable"
+    id="toggle-move">
+  </a-plane>
+  <a-text 
+    id="toggle-text"
+    value="⏸ Pause"
+    align="center"
+    color="#fff"
+    position="0 0 0.01"
+    width="1.8">
+  </a-text>
+</a-entity>
+
+
+  </a-camera>
+</a-entity>
+
+
+<!-- Mouvement automatique -->
+
+
+
+      <!-- Sol -->
+      <a-plane rotation="-90 0 0" width="40" height="100" color="#222"></a-plane>
+
+      <!-- Mur gauche -->
+      <a-plane position="-5 2 -5" rotation="0 90 0" width="20" height="4" color="#444"></a-plane>
+
+      <!-- Mur droit -->
+      <a-plane position="5 2 -5" rotation="0 -90 0" width="20" height="4" color="#444"></a-plane>
+
+      <!-- Tableau 1 gauche -->
+      <!-- 🎭 Art traditionnel -->
+<a-image src="assets/images/photographie1.jpg" position="-4.9 2 -5" rotation="0 90 0" width="2.5" height="2.5"></a-image>
+<a-image src="assets/images/photographie2.jpg" position="-4.9 2 -8" rotation="0 90 0" width="2.5" height="2.5"></a-image>
+
+<a-text value="Masque Fang - Gabon" position="-4.8 0.8 -5" rotation="0 90 0" width="2" color="#fff"></a-text>
+<a-text value="Masque Dan - Côte d’Ivoire" position="-4.8 0.8 -8" rotation="0 90 0" width="2" color="#fff"></a-text>
+
+
+<!-- 🎨 Art contemporain -->
+<a-image src="assets/images/photographie3.jpg" position="4.9 2 -4" rotation="0 -90 0" width="2.5" height="2.5"></a-image>
+<a-image src="assets/images/photographie4.jpg" position="4.9 2 -7" rotation="0 -90 0" width="2.5" height="2.5"></a-image>
+
+<a-text value="Art urbain de Lagos" position="4.8 0.8 -4" rotation="0 -90 0" width="2" color="#fff"></a-text>
+<a-text value="Portrait moderne - Kinshasa" position="4.8 0.8 -7" rotation="0 -90 0" width="2" color="#fff"></a-text>
+
+
+   <!-- 🧵 Art textile -->
+<a-image src="assets/images/photographie5.jpg" position="-2 2 -15" width="2.5" height="2.5"></a-image>
+<a-text value="Pagnes traditionnels – Mali" position="-2 0.8 -15" width="2" color="#fff"></a-text>
+
+<!-- 🗿 Sculpture -->
+<a-box position="2 0.6 -15" depth="0.5" height="1.2" width="0.5" color="#444"></a-box>
+<a-image src="assets/images/photographie6.jpg" position="2 1.7 -15" width="1.2" height="1.5"></a-image>
+<a-text value="Sculpture bois – Burkina Faso" position="2 0.3 -15" width="2" color="#fff" align="center"></a-text>
+ 
+    </a-scene>
+<script>
+  let paused = false;
+  const rig = document.getElementById('rig');
+  const toggleText = document.getElementById('toggle-text');
+
+  AFRAME.registerComponent('auto-move', {
+    tick: function () {
+      if (!paused) {
+        const position = rig.getAttribute('position');
+        rig.setAttribute('position', {
+          x: position.x,
+          y: position.y,
+          z: position.z - 0.01
+        });
+      }
+    }
+  });
+
+  document.querySelector('a-scene').setAttribute('auto-move', '');
+
+  document.getElementById('toggle-move').addEventListener('click', () => {
+    paused = !paused;
+    toggleText.setAttribute('value', paused ? '▶️ Reprendre' : '⏸ Pause');
+  });
+</script>
+
+
+
+  </body>
+</html>

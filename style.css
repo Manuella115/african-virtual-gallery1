@@ -1,0 +1,652 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #0f172a; /* slate-900 */
+  color: white;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+}
+
+.logo {
+  width: 100px;
+  margin: auto;
+}
+
+.hamburger {
+  background-color: red;
+  color: white;
+  font-size: 1.5em;
+  border: none;
+}
+
+.cta {
+  background-color: #2563eb; /* bleu */
+  color: white;
+  border: none;
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.hero {
+  text-align: center;
+  padding: 4em 2em;
+}
+
+.hero h1 {
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.exhibitions .gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1em;
+  justify-content: center;
+  padding: 2em;
+}
+
+.gallery img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+}
+
+.artists {
+  padding: 2em;
+}
+
+.artist-card {
+  background-color: #1e293b;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+}
+
+footer {
+  background-color: #1e293b;
+  text-align: center;
+  padding: 2em;
+  margin-top: 2em;
+}
+
+footer a {
+  color: #93c5fd;
+  margin: 0 1em;
+  text-decoration: none;
+}
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 3rem;
+}
+
+.animated-image {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 15px;
+  animation: dance 5s infinite ease-in-out;
+}
+
+/* Effet de décalage pour créer un rythme */
+.delay0 { animation-delay: 0s; }
+.delay1 { animation-delay: 0.5s; }
+.delay2 { animation-delay: 1s; }
+.delay3 { animation-delay: 1.5s; }
+
+/* Animation spectaculaire */
+@keyframes dance {
+  0% {
+    transform: rotate(0deg) translateY(0px) scale(1);
+  }
+  25% {
+    transform: rotate(5deg) translateY(-20px) scale(1.1);
+  }
+  50% {
+    transform: rotate(-5deg) translateY(10px) scale(0.95);
+  }
+  75% {
+    transform: rotate(3deg) translateY(-15px) scale(1.05);
+  }
+  100% {
+    transform: rotate(0deg) translateY(0px) scale(1);
+  }
+}
+.exhibitions {
+  padding: 2rem;
+  text-align: center;
+}
+
+.exhibitions h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* La "fenêtre" du train */
+.marquee {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+/* Le rail du train */
+.marquee-content {
+  display: flex;
+  width: max-content;
+  animation: scrollTrain 30s linear infinite;
+}
+
+/* Chaque wagon */
+.marquee-content img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 1rem;
+}
+
+/* L’animation du train */
+@keyframes scrollTrain {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+/* === MENU LATÉRAL CACHÉ PAR DÉFAUT === */
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  left: -250px; /* caché à gauche */
+  width: 250px;
+  height: 100vh;
+  background-color: #1e293b;
+  z-index: 999;
+  padding-top: 5rem;
+  transition: left 0.3s ease-in-out;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobile-menu li {
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.mobile-menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.mobile-menu a:hover {
+  color: #60a5fa;
+}
+
+/* === CLASSE POUR OUVRIR LE MENU === */
+.mobile-menu.open {
+  left: 0;
+}
+.menu-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Le menu qui apparaît sous le bouton */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #1e293b;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 10;
+  min-width: 200px;
+}
+
+.dropdown-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dropdown-menu li {
+  margin: 0.8rem 0;
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.dropdown-menu a:hover {
+  color: #60a5fa;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+.artists {
+  padding: 3rem 2rem;
+  text-align: center;
+  background-color: #0f172a;
+}
+
+.artists h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #93c5fd;
+}
+
+.artist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.artist-card {
+  background-color: #1e293b;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.artist-card:hover {
+  transform: translateY(-5px);
+}
+
+.artist-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.artist-card h3 {
+  font-size: 1.3rem;
+  color: #facc15;
+  margin-bottom: 0.5rem;
+}
+
+.artist-card p {
+  font-size: 1rem;
+  color: #e5e7eb;
+}
+.community {
+  background-color: #1e293b;
+  text-align: center;
+  padding: 4rem 2rem;
+  color: white;
+}
+
+.community h2 {
+  font-size: 2.5rem;
+  color: #93c5fd;
+  margin-bottom: 1rem;
+}
+
+.community p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  color: #d1d5db;
+}
+
+.community-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.join-btn,
+.newsletter-btn {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.join-btn:hover,
+.newsletter-btn:hover {
+  background: #1d4ed8;
+}
+/* Style de la page À propos immersive */
+.apropos-body {
+  background-color: #0f172a;
+  color: white;
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Flèche de retour */
+.back-arrow {
+  position: fixed;
+  top: 1.5rem;
+  left: 1rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.arrow {
+  font-size: 2rem;
+  animation: bounceArrow 1.5s infinite;
+  color: #60a5fa;
+  margin-right: 0.5rem;
+}
+
+.glide-text {
+  font-size: 0.95rem;
+  color: #cbd5e1;
+}
+
+/* Animation de la flèche */
+@keyframes bounceArrow {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-10px);
+  }
+}
+
+/* Contenu principal */
+.apropos-container {
+  padding: 6rem 2rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.apropos-hero h1 {
+  font-size: 2.5rem;
+  color: #93c5fd;
+  margin-bottom: 1rem;
+}
+
+.apropos-hero p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #e2e8f0;
+}
+
+/* Bloc contact */
+.apropos-contact {
+  margin-top: 3rem;
+  background-color: #1e293b;
+  padding: 2rem;
+  border-radius: 12px;
+}
+
+.apropos-contact h2 {
+  color: #60a5fa;
+  margin-bottom: 1rem;
+}
+
+.apropos-contact ul {
+  list-style: none;
+  padding: 0;
+}
+
+.apropos-contact li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+}
+
+.apropos-contact a {
+  color: #93c5fd;
+  text-decoration: underline;
+}
+.apropos-quote {
+  margin: 3rem auto;
+  text-align: center;
+  max-width: 600px;
+  padding: 2rem;
+  background-color: #1e293b;
+  border-left: 5px solid #60a5fa;
+  border-radius: 12px;
+}
+
+.apropos-quote blockquote {
+  font-size: 1.3rem;
+  font-style: italic;
+  color: #f9fafb;
+  margin-bottom: 1rem;
+}
+
+.quote-author {
+  color: #93c5fd;
+  font-weight: bold;
+}
+.apropos-hero-compact {
+  justify-content: center;
+  max-width: 1100px;
+  margin: 3rem auto;
+  gap: 1rem;
+}
+
+.side-image {
+  flex: 0 0 20%;
+  max-width: 220px;
+  display: flex;
+  justify-content: center;
+}
+
+/* ESPACEMENT entre images et texte */
+.side-image.left {
+  margin-right: 10rem;
+}
+
+.side-image.right {
+  margin-left: 10rem;
+}
+
+.side-image img {
+  max-height: 300px;
+  width: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 0 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.side-image img:hover {
+  transform: scale(1.05);
+}
+
+.artistes-hero {
+  text-align: center;
+  padding: 3rem 1rem 2rem;
+  background-color: #1e293b;
+}
+
+.artistes-hero h1 {
+  font-size: 2.8rem;
+  color: #60a5fa;
+  margin-bottom: 1rem;
+}
+
+.artistes-hero p {
+  font-size: 1.2rem;
+  color: #e2e8f0;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.back-arrow {
+  display: inline-block;
+  margin: 1rem;
+  text-decoration: none;
+  color: #60a5fa;
+  font-size: 1.1rem;
+  transition: transform 0.3s ease;
+}
+
+.back-arrow:hover {
+  transform: translateX(-5px);
+}
+
+.artistes-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+.art-category {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
+.art-category h2 {
+  font-size: 2rem;
+  color: #93c5fd;
+  margin-bottom: 1.5rem;
+}
+
+.artist-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 0 2rem;
+}
+
+.artist-card {
+  background-color: #1e293b;
+  padding: 1rem;
+  border-radius: 12px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.artist-card:hover {
+  transform: translateY(-5px);
+}
+
+.artist-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 1rem;
+}
+
+.artist-card h3 {
+  color: #f9fafb;
+  margin-bottom: 0.5rem;
+}
+
+.artist-card p {
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+}
+
+.voir-plus {
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.voir-plus:hover {
+  background-color: #1d4ed8;
+}
+.expo-page {
+  background-color: #0f172a;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.expo-header {
+  text-align: center;
+  padding: 2rem;
+}
+
+.expo-header h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #93c5fd;
+}
+
+.back-home {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  color: #93c5fd;
+  text-decoration: none;
+}
+
+.virtual-gallery {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  padding: 2rem;
+}
+
+.gallery-scroll {
+  display: flex;
+  gap: 2rem;
+}
+
+.art-piece {
+  display: inline-block;
+  background-color: #1e293b;
+  padding: 1rem;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.art-piece img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
